@@ -1,6 +1,10 @@
-import { combineReducers } from 'redux'
-import events from './events';
+import { combineReducers } from 'redux';
+import dictionary from './dictionary';
+import history from './history';
+import page from './page';
 
 export default combineReducers({
-    events
+    dictionary,
+    history,
+    page
 });

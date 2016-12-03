@@ -5,4 +5,4 @@ import path from 'path';
 const app = express();
 app.use('/static', express.static(path.join(__dirname, '../static')));
 app.use('/', renderApp);
-app.listen(80, () => console.log('start on 80 port'));
+app.listen(3000, () => console.log('start on 3000 port'));

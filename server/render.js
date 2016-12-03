@@ -6,7 +6,7 @@ import { renderToString } from 'react-dom/server';
 import { createStore } from 'redux';
 import reducer from '../reducers/reducer';
 
-import App from '../components/App/App';
+import App from '../containers/App/App';
 import { Provider } from 'react-redux';
 
 function renderPage(html, state) {
@@ -15,6 +15,7 @@ function renderPage(html, state) {
         <html>
             <head>
                 <title>Redux Universal Example</title>
+                <link rel="stylesheet" href="/static/styles.css"/>
             </head>
             <body>
                 <div id="app">${html}</div>
