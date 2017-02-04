@@ -9,7 +9,17 @@
 .Action {
     padding: 8px;
     color: #444;
-    border: 1px solid #eee;
+    border: 1px solid #ddd;
+}
+
+.Action__title {
+    font-size: 14px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #eee;
+}
+
+.Action__button {
+    margin: 6px 6px 0 0;
 }
 
 .MainMenu__item {

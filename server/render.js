@@ -4,9 +4,9 @@ import React from 'react';
 import path from 'path';
 import { renderToString } from 'react-dom/server';
 import { createStore } from 'redux';
-import reducer from '../reducers/reducer';
+import reducer from '../app/reducers/reducer';
 
-import App from '../containers/App/App';
+import App from '../app/containers/App/App';
 import { Provider } from 'react-redux';
 
 function renderPage(html, state) {

@@ -1,8 +1,8 @@
 import { SET_PAGE } from '../actions/page';
-import { HISTORY } from '../constants/page';
+import { NEW_TEST } from '../constants/page';
 
 const initialState = {
-    current: HISTORY
+    current: NEW_TEST
 };
 
 export default function events(state = initialState, { type, payload }) {
