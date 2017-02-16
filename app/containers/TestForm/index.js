@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import block from 'bem-cn';
 
+import { updateDraft, saveDraft } from '../../actions/test';
+
+import resources from './resources';
+import getQuestionClass from '../../lib/getQuestionClass';
+
 import TestMeta from '../../components/TestMeta';
 import NewQuestion from '../../components/NewQuestion';
 
@@ -12,7 +17,9 @@ class TestForm extends Component {
         const {
             meta,
             questions,
-            language
+            language,
+            onDraftChange,
+            onAddNewQuestion
         } = this.props;
 
         return (
@@ -23,23 +30,35 @@ class TestForm extends Component {
                     {...meta}
                 />
 
-                {questions.map((question, index) =>
-                    <question.Type
-                        key={index}
-                        {...question}
-                    />)
+                {questions.map((question, index) => {
+                    const QuestionClass = getQuestionClass(question.type);
+
+                    return (
+                        <QuestionClass
+                            key={index}
+                            {...question}
+                        />
+                    )})
                 }
 
                 <NewQuestion
-                    className={b('addQuestion')}
                     language={language}
+                    className={b('newQuestion')}
+                    onDraftChange={onDraftChange}
                 />
+                
+                <button
+                    className={b('addQuestion')}
+                    onClick={onAddNewQuestion}
+                >
+                    {resources[language]['addQuestion']}
+                </button>
             </div>
         )
     }
 }
 
-export default connect((state) => {
+const stateToProps = (state) => {
     const { test, language} = state;
 
     return {
@@ -47,4 +66,11 @@ export default connect((state) => {
         questions: test ? test.questions : [],
         language
     };
-})(TestForm);
+};
+
+const dispatchToProps = (dispatch) => ({
+    onDraftChange: (draft) => dispatch(updateDraft(draft)),
+    onAddNewQuestion: () => dispatch(saveDraft())
+});
+
+export default connect(stateToProps, dispatchToProps)(TestForm);

@@ -15,12 +15,12 @@ function renderPage(html, state) {
         <html>
             <head>
                 <title>Redux Universal Example</title>
-                <link rel="stylesheet" href="/static/styles.css"/>
+                <link rel="stylesheet" href="/bundle/style.css"/>
             </head>
             <body>
                 <div id="app">${html}</div>
                 <script>window.__APP_STATE__ = ${JSON.stringify(state)}</script>
-                <script type="text/javascript" src="/static/app.js"></script>
+                <script type="text/javascript" src="/bundle/app.js"></script>
             </body>
         </html>
     `;

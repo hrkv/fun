@@ -2,7 +2,7 @@ import { RU } from '../../constants/langs';
 import {
     FREE_ANSWER,
     CHOOSE_ANSWER
-} from '../../constants/tests';
+} from '../../constants/questions';
 
 export default {
     [RU]: {

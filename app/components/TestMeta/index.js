@@ -21,7 +21,7 @@ export default class TestMeta extends Component {
                     placeholder={resources[language]['title']}
                 />
 
-                <input
+                <textarea
                     className={b('description')}
 
                     type="text"
@@ -32,6 +32,7 @@ export default class TestMeta extends Component {
                     className={b('limit')}
 
                     type="number"
+                    placeholder={resources[language]['limit']}
                 />
             </div>
         )
